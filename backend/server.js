@@ -1,5 +1,5 @@
-const http = require('http');
-const app = require('./app');
+const http = require('http'); //Package de node permettant la création d'un serveur
+const app = require('./app'); // Importe le fichier app.js
 
 const normalizePort = val => {
   const port = parseInt(val, 10);
@@ -11,9 +11,10 @@ const normalizePort = val => {
     return port;
   }
   return false;
-};
-const port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+}; //Renvoi un port valide, soit un numéro, soit une chaîne de caractères
+
+const port = normalizePort(process.env.PORT || '3000'); // Ttilise le port de la variable d'environnement du serveur par défaut sinon on utilise port 3000
+app.set('port', port); //Ajoute le port retourné à l'application
 
 const errorHandler = error => {
   if (error.syscall !== 'listen') {
@@ -33,9 +34,9 @@ const errorHandler = error => {
     default:
       throw error;
   }
-};
+}; //Recherche les différentes erreurs et les gère de manière appropriée puis enregistrée dans le serveur
 
-const server = http.createServer(app);
+const server = http.createServer(app); //Création du serveur avec pour agument la fonction "app"
 
 server.on('error', errorHandler);
 server.on('listening', () => {
@@ -44,4 +45,4 @@ server.on('listening', () => {
   console.log('Listening on ' + bind);
 });
 
-server.listen(port);
+server.listen(port); //Ecouteur d'évènements consignant le port ou le canal nommé sur lequel le serveur s'exécute dans la console
