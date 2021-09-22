@@ -9,7 +9,7 @@ const helmet = require("helmet");
 const app = express();
 
 // Liaison avec la base de données MONGODB
-mongoose.connect(`mongodb+srv://${MGDBUser}:${MGDBPassword}@cluster0.7vuaw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+mongoose.connect('mongodb+srv://piquante:secretpassword@cluster0.7nzki.mongodb.net/piiquante?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
