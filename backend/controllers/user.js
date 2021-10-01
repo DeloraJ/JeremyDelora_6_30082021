@@ -17,7 +17,7 @@ schemaPassValid
 
 exports.signup = (req, res, next) => {
   if (!schemaPassValid.validate(req.body.password)) {
-    res.status(401).json({message:"Sécurité du mot de passe faible. Il doit contenir au moins 8 caractère, des majuscules et deux chiffres"})
+    res.status(401).json({message:"Sécurité du mot de passe faible. Il doit contenir au moins 8 caractères, des majuscules et deux chiffres"})
   }
   bcrypt.hash(req.body.password, 10) // Hashage 10 fois du mot de passe du corps de la requete
     .then(hash => { //Hashage envoyé dans un nouvel utilisateur
